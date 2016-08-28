@@ -1,0 +1,59 @@
+import pygame,sys
+from pygame.locals import *
+#include libraries
+
+pygame.init()
+#init
+
+FPS = 60
+#set frame per second
+
+fpsClock=pygame.time.Clock()
+#pygame clock timer
+
+DISPLAYSURF = pygame.display.set_mode((400,300),0,32)
+pygame.display.set_caption("Zelra's animation test")
+#window config
+
+white = (255,255,255)
+movingimg=pygame.image.load('python icon.png')
+#define color and picture, picture should be in same folder with code
+
+xvalue=10
+yvalue=10
+direction='right'
+#init position
+
+while True: #main loop
+    DISPLAYSURF.fill(white) #background
+    if direction == 'right':
+        xvalue += 5
+        if xvalue == 280:
+            direction = 'down'
+    elif direction == 'down':
+        yvalue += 5
+        if yvalue == 220:
+            direction = 'left'
+    elif direction == 'left':
+        xvalue -= 5
+        if xvalue == 10:
+            direction = 'up'
+    elif direction == 'up':
+        yvalue -= 5
+        if yvalue == 10:
+            direction = 'right'
+    #moves
+
+    DISPLAYSURF.blit(movingimg,(xvalue,yvalue))
+    #move the picture. note that you can't move in a locked surface
+
+    #close code
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+
+    pygame.display.update()
+
+    fpsClock.tick(FPS)
+    #to calculate the frame interval timer, should be after update() everytime
