@@ -1,0 +1,17 @@
+import pygame, sys #import libs
+from pygame.locals import * #this skips the module name
+
+pygame.init() #init the lib
+
+DISPLAYSURF = pygame.display.set_mode((400,300))
+#set window resolution, it's a single value of (400,300)
+
+pygame.display.set_caption("Zelra's Trial")
+#set window caption
+
+while True: #main loop
+    for event in pygame.event.get(): #internal built input event controller
+        if event.type == QUIT: #quit event
+            pygame.quit() #quit game
+            sys.exit() #system exit
+    pygame.display.update() #every step requires update
