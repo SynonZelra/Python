@@ -35,6 +35,7 @@ pygame.draw.line(DISPLAYSURF,BLUE,(60,120),(120,120),4)
 #draw lines, it's basically (surface, color, start point, end point, width)
 #also, pygame.draw.line(surface, color, close_boolean, point list, width) draws lines
 #this plots all points. if close_boolean = True, the last point will plot to first point
+#also, pygame.draw.aaline() supports anti aliasing in lines
 
 pygame.draw.circle(DISPLAYSURF,BLUE,(300,50),20,0)
 #draw circle, it's (surface, color, center, radius, width
