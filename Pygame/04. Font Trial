@@ -1,0 +1,31 @@
+import pygame, sys
+from pygame. locals import *
+#include libraries
+
+pygame.init()
+DISPLAYSURF = pygame.display.set_mode((400,300))
+pygame.display.set_caption("Font Trial")
+white=(255,255,255)
+green=(0,255,0)
+blue=(0,0,128)
+#init
+
+fontObj = pygame.font.SysFont('arial.tff',64)
+#creat a font object with system font
+
+textSurfaceObj = fontObj.render("Font testing",True,green,blue)
+#fontObj.render=(test to render, boolean_anti_aliasing, text color, background color)
+#skip the last parameter if the background color is transparent
+
+textRectObj = textSurfaceObj.get_rect()
+textRectObj.center = (200,150)
+#set the tezt position
+
+while True: #main loop
+    DISPLAYSURF.fill(white)
+    DISPLAYSURF.blit(textSurfaceObj, textRectObj)
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+    pygame.display.update()
