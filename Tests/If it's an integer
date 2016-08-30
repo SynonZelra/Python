@@ -1,0 +1,17 @@
+step=0
+intkey = True
+
+try:
+    value=int(input("Please input the value:\n"))
+except ValueError:
+    intkey = False
+
+if intkey == True:
+    while value != 1:
+        if value%2 ==0:
+            value = value/2
+            step = step+1
+        else:
+            value = 3*value+1
+            step = step+1
+    print(step)
